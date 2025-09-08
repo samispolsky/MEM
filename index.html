@@ -1,0 +1,39 @@
+ (cd "$(git rev-parse --show-toplevel)" && git apply --3way <<'EOF' 
+diff --git a//dev/null b/index.html
+index 0000000000000000000000000000000000000000..b1033f1816a7d0ca46f6381592f28c0887e9ca35 100644
+--- a//dev/null
++++ b/index.html
+@@ -0,0 +1,30 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++  <meta charset="UTF-8">
++  <meta name="viewport" content="width=device-width, initial-scale=1.0">
++  <title>Header Example</title>
++  <link rel="stylesheet" href="styles.css">
++</head>
++<body>
++  <header class="site-header">
++    <nav class="navbar">
++      <div class="logo">Logo</div>
++      <ul class="nav-links">
++        <li><a href="#">Home</a></li>
++        <li class="active"><a href="#">Products</a></li>
++        <li><a href="#">about us</a></li>
++        <li><a href="#">FAQs</a></li>
++      </ul>
++    </nav>
++    <div class="hero">
++      <div class="hero-content">
++        <h1>Transform written content into stunning visual designs</h1>
++        <p>Harness the power of AI to easily create and share graphics.</p>
++        <button class="cta">Get Started</button>
++      </div>
++      <img class="hero-image" src="https://picsum.photos/seed/header/600/500" alt="Abstract art" />
++    </div>
++  </header>
++</body>
++</html>
+ 
+EOF
+)
