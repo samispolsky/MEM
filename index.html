@@ -1,83 +1,265 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MEM — Header Demo</title>
-  <style>
-    :root{
-      --bg:#0f1220; --card:#1a1e2e; --ink:#f5f7fb; --muted:#a7adc5; --brand:#7c5cff;
-      --ring: rgba(124,92,255,.35);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#0b0e1a, #121630 40%, #0f1220);color:var(--ink);font:500 16px/1.5 system-ui, Inter, Segoe UI, Roboto, Helvetica, Arial}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(15,18,32,.7);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand img{width:28px;height:28px;border-radius:8px;display:block}
-    .navlinks{display:flex;align-items:center;gap:20px}
-    .navlinks a{color:var(--muted)}
-    .navlinks a:hover{color:var(--ink)}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:0 8px 24px var(--ring)}
-    .cta:active{transform:translateY(1px)}
-    /* Mobile */
-    .burger{display:none;background:transparent;border:0;color:var(--ink);font-size:18px}
-    @media (max-width:880px){
-      .navlinks{display:none}
-      .burger{display:inline-flex}
-      .drawer{position:fixed;inset:64px 0 auto 0;background:var(--card);border-top:1px solid rgba(255,255,255,.08);display:none}
-      .drawer.open{display:block}
-      .drawer .inner{padding:16px}
-      .drawer a{display:block;padding:12px 8px;color:var(--muted)}
-      .drawer a:hover{color:var(--ink)}
-    }
-    /* Demo hero so widać, że działa */
-    .hero{padding:80px 0}
-    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,48px);letter-spacing:.2px}
-    .hero p{margin:0 0 24px;color:var(--muted);max-width:58ch}
-  </style>
-  <script>
-    // prosty toggle dla mobile menu
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const btn=document.querySelector('#burger'); const drawer=document.querySelector('#drawer');
-      btn?.addEventListener('click', ()=> drawer.classList.toggle('open'));
-    });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Emporium Media - Dostęp Premium</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img alt="" src="https://miniemporium.pl/wp-content/uploads/2025/09/Banner-v2-scaled.jpg">
-        <span>Mini Emporium Media</span>
-      </a>
-      <nav class="navlinks">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
-      </nav>
-      <button id="burger" class="burger" aria-label="Menu">☰</button>
-    </div>
-    <div id="drawer" class="drawer" aria-hidden="true">
-      <div class="inner container">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          <h2>Mini Emporium Media</h2>
+        </div>
+        <nav class="nav-links">
+          <a href="#features">Funkcje</a>
+          <a href="#pricing">Cennik</a>
+          <a href="#about">O nas</a>
+          <a href="#contact">Kontakt</a>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
       </div>
     </div>
   </header>
 
-  <section class="hero container">
-    <h1>Transform written content into stunning visuals</h1>
-    <p>Harness the power of content + video to grow hospitality, F&B and real estate brands in Malta.</p>
-    <a class="cta" href="#get-started">Book discovery call</a>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Funkcje</a>
+    <a href="#pricing">Cennik</a>
+    <a href="#about">O nas</a>
+    <a href="#contact">Kontakt</a>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Przekształcaj treści w wizualne arcydzieła</h1>
+        <p class="hero-subtitle">Wykorzystaj moc treści i wideo do rozwoju marek z branży hotelarskiej, gastronomicznej i nieruchomości na Malcie.</p>
+        <a href="#pricing" class="btn btn-primary">Wybierz plan</a>
+      </div>
+    </div>
   </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2 class="section-title">Dlaczego warto wybrać nas?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📹</div>
+          <h3>Produkcja wideo</h3>
+          <p>Profesjonalne nagrania i montaż dopasowane do Twojej marki</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✍️</div>
+          <h3>Content writing</h3>
+          <p>Angażujące treści, które przyciągają uwagę Twoich klientów</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎨</div>
+          <h3>Design graficzny</h3>
+          <p>Kreatywne projekty, które wyróżniają Twoją markę</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Social media</h3>
+          <p>Kompleksowa obsługa mediów społecznościowych</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🚀</div>
+          <h3>Marketing strategy</h3>
+          <p>Strategia marketingowa szyta na miarę Twojego biznesu</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📈</div>
+          <h3>Analytics</h3>
+          <p>Szczegółowe raporty i analiza wyników kampanii</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2 class="section-title">Wybierz plan dla siebie</h2>
+      <p class="section-subtitle">Elastyczne opcje dopasowane do Twoich potrzeb</p>
+
+      <div class="pricing-grid">
+        <!-- Basic Plan -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <h3>Starter</h3>
+            <div class="price">
+              <span class="currency">€</span>
+              <span class="amount">299</span>
+              <span class="period">/miesiąc</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 2 produkcje wideo miesięcznie</li>
+            <li>✓ 8 postów w social media</li>
+            <li>✓ Podstawowy copywriting</li>
+            <li>✓ Email support</li>
+            <li>✓ Miesięczny raport</li>
+          </ul>
+          <button class="btn btn-outline" onclick="openPurchaseModal('Starter', 299)">Wybierz plan</button>
+        </div>
+
+        <!-- Professional Plan -->
+        <div class="pricing-card featured">
+          <div class="badge">Najpopularniejszy</div>
+          <div class="plan-header">
+            <h3>Professional</h3>
+            <div class="price">
+              <span class="currency">€</span>
+              <span class="amount">599</span>
+              <span class="period">/miesiąc</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>✓ 5 produkcji wideo miesięcznie</li>
+            <li>✓ 20 postów w social media</li>
+            <li>✓ Zaawansowany copywriting</li>
+            <li>✓ Dedykowany account manager</li>
+            <li>✓ Strategia marketingowa</li>
+            <li>✓ Tygodniowe raporty</li>
+            <li>✓ Priority support</li>
+          </ul>
+          <button class="btn btn-primary" onclick="openPurchaseModal('Professional', 599)">Wybierz plan</button>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="pricing-card">
+          <div class="plan-header">
+            <h3>Enterprise</h3>
+            <div class="price">
+              <span class="currency">€</span>
+              <span class="amount">1299</span>
+              <span class="period">/miesiąc</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>✓ Nielimitowane produkcje wideo</li>
+            <li>✓ Nielimitowane posty</li>
+            <li>✓ Premium copywriting</li>
+            <li>✓ Dedykowany zespół</li>
+            <li>✓ Pełna strategia marketingowa</li>
+            <li>✓ Codzienne raporty</li>
+            <li>✓ 24/7 support</li>
+            <li>✓ Konsultacje strategiczne</li>
+          </ul>
+          <button class="btn btn-outline" onclick="openPurchaseModal('Enterprise', 1299)">Wybierz plan</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">O Mini Emporium Media</h2>
+      <p class="about-text">
+        Jesteśmy agencją specjalizującą się w tworzeniu wysokiej jakości treści wizualnych
+        dla marek z branży hotelarskiej, gastronomicznej i nieruchomości na Malcie.
+        Nasza pasja to przekształcanie Twoich pomysłów w angażujące historie wizualne,
+        które przyciągają klientów i budują silną obecność online.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Skontaktuj się z nami</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <strong>Email:</strong> hello@miniemporium.pl
+        </div>
+        <div class="contact-item">
+          <strong>Telefon:</strong> +356 123 456 789
+        </div>
+        <div class="contact-item">
+          <strong>Adres:</strong> Valletta, Malta
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Mini Emporium Media. Wszystkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+  <!-- Purchase Modal -->
+  <div id="purchaseModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closePurchaseModal()">&times;</span>
+      <h2>Zakup dostępu</h2>
+      <div id="modalPlanInfo" class="plan-info"></div>
+
+      <form id="purchaseForm" class="purchase-form">
+        <div class="form-group">
+          <label for="fullName">Imię i nazwisko *</label>
+          <input type="text" id="fullName" name="fullName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="company">Nazwa firmy</label>
+          <input type="text" id="company" name="company">
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefon *</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+
+        <div class="form-group">
+          <label for="cardNumber">Numer karty *</label>
+          <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="expiry">Data ważności *</label>
+            <input type="text" id="expiry" name="expiry" placeholder="MM/RR" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cvv">CVV *</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123" required>
+          </div>
+        </div>
+
+        <div class="form-group checkbox-group">
+          <label>
+            <input type="checkbox" id="terms" name="terms" required>
+            Akceptuję regulamin i politykę prywatności
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Zapłać teraz</button>
+      </form>
+
+      <div id="successMessage" class="success-message" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h3>Płatność zakończona sukcesem!</h3>
+        <p>Dziękujemy za zakup. Wkrótce skontaktujemy się z Tobą w sprawie dalszych kroków.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
