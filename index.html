@@ -1,83 +1,755 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="pl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MEM — Header Demo</title>
-  <style>
-    :root{
-      --bg:#0f1220; --card:#1a1e2e; --ink:#f5f7fb; --muted:#a7adc5; --brand:#7c5cff;
-      --ring: rgba(124,92,255,.35);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#0b0e1a, #121630 40%, #0f1220);color:var(--ink);font:500 16px/1.5 system-ui, Inter, Segoe UI, Roboto, Helvetica, Arial}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(15,18,32,.7);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand img{width:28px;height:28px;border-radius:8px;display:block}
-    .navlinks{display:flex;align-items:center;gap:20px}
-    .navlinks a{color:var(--muted)}
-    .navlinks a:hover{color:var(--ink)}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:0 8px 24px var(--ring)}
-    .cta:active{transform:translateY(1px)}
-    /* Mobile */
-    .burger{display:none;background:transparent;border:0;color:var(--ink);font-size:18px}
-    @media (max-width:880px){
-      .navlinks{display:none}
-      .burger{display:inline-flex}
-      .drawer{position:fixed;inset:64px 0 auto 0;background:var(--card);border-top:1px solid rgba(255,255,255,.08);display:none}
-      .drawer.open{display:block}
-      .drawer .inner{padding:16px}
-      .drawer a{display:block;padding:12px 8px;color:var(--muted)}
-      .drawer a:hover{color:var(--ink)}
-    }
-    /* Demo hero so widać, że działa */
-    .hero{padding:80px 0}
-    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,48px);letter-spacing:.2px}
-    .hero p{margin:0 0 24px;color:var(--muted);max-width:58ch}
-  </style>
-  <script>
-    // prosty toggle dla mobile menu
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const btn=document.querySelector('#burger'); const drawer=document.querySelector('#drawer');
-      btn?.addEventListener('click', ()=> drawer.classList.toggle('open'));
-    });
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bemit.pl - Farby i Gry Planszowe dla Hobbystów</title>
+  <meta name="description" content="Największy sklep z farbami artystycznymi i grami planszowymi w Polsce. Darmowa dostawa od 150 zł!">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img alt="" src="https://miniemporium.pl/wp-content/uploads/2025/09/Banner-v2-scaled.jpg">
-        <span>Mini Emporium Media</span>
-      </a>
-      <nav class="navlinks">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
-      </nav>
-      <button id="burger" class="burger" aria-label="Menu">☰</button>
-    </div>
-    <div id="drawer" class="drawer" aria-hidden="true">
-      <div class="inner container">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-container container">
+      <a href="/" class="logo">Bemit<span>.pl</span></a>
+
+      <div class="search-container">
+        <form class="search-wrapper" role="search">
+          <input
+            type="search"
+            class="search-input"
+            placeholder="Czego szukasz?"
+            aria-label="Wyszukaj produkty"
+          >
+          <button type="submit" class="search-button">Szukaj</button>
+        </form>
       </div>
+
+      <nav class="header-icons" aria-label="Nawigacja użytkownika">
+        <a href="/konto" class="icon-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Konto</span>
+        </a>
+        <a href="/koszyk" class="icon-button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+          <span>Koszyk</span>
+          <span class="icon-badge">3</span>
+        </a>
+      </nav>
+
+      <button id="mobile-menu-button" class="mobile-menu-button" aria-label="Menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
-  <section class="hero container">
-    <h1>Transform written content into stunning visuals</h1>
-    <p>Harness the power of content + video to grow hospitality, F&B and real estate brands in Malta.</p>
-    <a class="cta" href="#get-started">Book discovery call</a>
-  </section>
+  <!-- NAVIGATION -->
+  <nav class="navigation" id="navigation">
+    <div class="nav-container container">
+      <a href="/farby" class="nav-link">Farby</a>
+      <a href="/pedzle" class="nav-link">Pędzle</a>
+      <a href="/plotna" class="nav-link">Płótna</a>
+      <a href="/gry-planszowe" class="nav-link">Gry Planszowe</a>
+      <a href="/promocje" class="nav-link">Promocje</a>
+      <a href="/nowosci" class="nav-link">Nowości</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-container container">
+        <div class="hero-image-wrapper">
+          <img
+            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800&h=600&fit=crop"
+            alt="Farby i pędzle artystyczne"
+            class="hero-image"
+          >
+        </div>
+        <div class="hero-text">
+          <h1>Twoja kreatywność, nasze kolory</h1>
+          <p>Odkryj profesjonalny świat farb artystycznych i gier planszowych. Ponad 2000 produktów dla pasjonatów sztuki i rozrywki.</p>
+          <a href="/sklep" class="hero-cta">Zobacz produkty</a>
+          <div class="trust-badges">
+            <div class="trust-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"></path>
+              </svg>
+              Darmowa dostawa od 150 zł
+            </div>
+            <div class="trust-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Gwarancja jakości
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOCJE TYGODNIA -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-emoji">🔥</span>
+            Promocje tygodnia
+          </h2>
+          <a href="/promocje" class="view-all">Zobacz wszystkie →</a>
+        </div>
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <article class="product-card">
+            <a href="/produkt/farby-akrylowe-24">
+              <img
+                src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=400&h=400&fit=crop"
+                alt="Zestaw farb akrylowych 24 kolory Premium"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-sale">-35%</span>
+                <h3 class="product-title">Zestaw farb akrylowych 24 kolory Premium</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(234)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">89,99 zł</span>
+                  <span class="price-old">139,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card">
+            <a href="/produkt/pedzle-syntetyczne">
+              <img
+                src="https://images.unsplash.com/photo-1572085266626-c0d1cf49b4b6?w=400&h=400&fit=crop"
+                alt="Zestaw pędzli syntetycznych 12 szt"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-sale">-25%</span>
+                <h3 class="product-title">Zestaw pędzli syntetycznych 12 szt</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(189)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">59,99 zł</span>
+                  <span class="price-old">79,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card">
+            <a href="/produkt/plotno-bawelniane">
+              <img
+                src="https://images.unsplash.com/photo-1547891654-e66ed7ebb968?w=400&h=400&fit=crop"
+                alt="Płótno bawełniane naciągnięte 50x70 cm"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-sale">-30%</span>
+                <h3 class="product-title">Płótno bawełniane naciągnięte 50x70 cm</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(156)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">34,99 zł</span>
+                  <span class="price-old">49,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card">
+            <a href="/produkt/farby-olejne">
+              <img
+                src="https://images.unsplash.com/photo-1596548438137-d51ea5c83ca5?w=400&h=400&fit=crop"
+                alt="Farby olejne 18 kolorów Master Series"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-sale">-40%</span>
+                <h3 class="product-title">Farby olejne 18 kolorów Master Series</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(312)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">119,99 zł</span>
+                  <span class="price-old">199,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card">
+            <a href="/produkt/akwarele-profesjonalne">
+              <img
+                src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop"
+                alt="Akwarele profesjonalne 36 kolorów"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-sale">-20%</span>
+                <h3 class="product-title">Akwarele profesjonalne 36 kolorów</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(267)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">159,99 zł</span>
+                  <span class="price-old">199,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KATEGORIE -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-emoji">🎨</span>
+            Kategorie
+          </h2>
+        </div>
+        <div class="category-grid">
+          <a href="/farby-akrylowe" class="category-card">
+            <div class="category-icon">🎨</div>
+            <h3 class="category-name">Farby akrylowe</h3>
+            <p class="category-count">1,234 produktów</p>
+          </a>
+
+          <a href="/farby-olejne" class="category-card">
+            <div class="category-icon">🖌️</div>
+            <h3 class="category-name">Farby olejne</h3>
+            <p class="category-count">856 produktów</p>
+          </a>
+
+          <a href="/akwarele" class="category-card">
+            <div class="category-icon">💧</div>
+            <h3 class="category-name">Akwarele</h3>
+            <p class="category-count">642 produkty</p>
+          </a>
+
+          <a href="/pedzle" class="category-card">
+            <div class="category-icon">✏️</div>
+            <h3 class="category-name">Pędzle</h3>
+            <p class="category-count">923 produkty</p>
+          </a>
+
+          <a href="/plotna" class="category-card">
+            <div class="category-icon">🖼️</div>
+            <h3 class="category-name">Płótna</h3>
+            <p class="category-count">456 produktów</p>
+          </a>
+
+          <a href="/papier" class="category-card">
+            <div class="category-icon">📄</div>
+            <h3 class="category-name">Papier</h3>
+            <p class="category-count">534 produkty</p>
+          </a>
+
+          <a href="/gry-strategiczne" class="category-card">
+            <div class="category-icon">🎲</div>
+            <h3 class="category-name">Gry strategiczne</h3>
+            <p class="category-count">387 produktów</p>
+          </a>
+
+          <a href="/gry-rodzinne" class="category-card">
+            <div class="category-icon">🃏</div>
+            <h3 class="category-name">Gry rodzinne</h3>
+            <p class="category-count">512 produktów</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLECANE DLA CIEBIE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-emoji">⭐</span>
+            Polecane dla Ciebie
+          </h2>
+          <a href="/polecane" class="view-all">Zobacz wszystkie →</a>
+        </div>
+        <div class="product-grid">
+          <!-- Product 1 -->
+          <article class="product-card">
+            <a href="/produkt/zestaw-hobby">
+              <img
+                src="https://images.unsplash.com/photo-1581337204873-ef36aa186caa?w=400&h=400&fit=crop"
+                alt="Zestaw dla początkujących Hobby Start"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-bestseller">Bestseller</span>
+                <h3 class="product-title">Zestaw dla początkujących Hobby Start</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(445)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">149,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card">
+            <a href="/produkt/paleta-drewniana">
+              <img
+                src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?w=400&h=400&fit=crop"
+                alt="Paleta drewniana owalna 30x40 cm"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-new">Nowość</span>
+                <h3 class="product-title">Paleta drewniana owalna 30x40 cm</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(89)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">39,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card">
+            <a href="/produkt/sztaluga-podlogowa">
+              <img
+                src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=400&h=400&fit=crop"
+                alt="Sztaluga podłogowa drewniana Classic"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-bestseller">Bestseller</span>
+                <h3 class="product-title">Sztaluga podłogowa drewniana Classic</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(178)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">249,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 4 -->
+          <article class="product-card">
+            <a href="/produkt/markery-promarker">
+              <img
+                src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=400&h=400&fit=crop"
+                alt="Markery ProMarker 48 kolorów"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-new">Nowość</span>
+                <h3 class="product-title">Markery ProMarker 48 kolorów</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(234)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">189,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Product 5 -->
+          <article class="product-card">
+            <a href="/produkt/blok-akwarelowy">
+              <img
+                src="https://images.unsplash.com/photo-1555952494-efd681c7e3f9?w=400&h=400&fit=crop"
+                alt="Blok akwarelowy A3 300g 20 ark"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <h3 class="product-title">Blok akwarelowy A3 300g 20 ark</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(198)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">45,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ZESTAWY STARTOWE -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-emoji">📦</span>
+            Zestawy startowe
+          </h2>
+        </div>
+        <div class="starter-kits-grid">
+          <article class="starter-kit-card">
+            <img
+              src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&h=400&fit=crop"
+              alt="Zestaw dla początkujących - Malarstwo akrylowe"
+              class="starter-kit-image"
+              loading="lazy"
+            >
+            <div class="starter-kit-info">
+              <span class="starter-kit-badge">Zestaw startowy</span>
+              <h3 class="starter-kit-title">Malarstwo akrylowe dla początkujących</h3>
+              <p class="starter-kit-description">Kompletny zestaw do rozpoczęcia przygody z malarstwem: farby, pędzle, płótna i instrukcja krok po kroku.</p>
+              <ul class="starter-kit-features">
+                <li>✓ 24 farby akrylowe</li>
+                <li>✓ 10 pędzli różnych rozmiarów</li>
+                <li>✓ 3 płótna naciągnięte</li>
+                <li>✓ Instrukcja dla początkujących</li>
+              </ul>
+              <div class="starter-kit-price">
+                <span class="price-current">299,99 zł</span>
+                <span class="price-old">449,99 zł</span>
+              </div>
+              <a href="/zestawy/akryl-start" class="starter-kit-cta">Zobacz zestaw</a>
+            </div>
+          </article>
+
+          <article class="starter-kit-card">
+            <img
+              src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&h=400&fit=crop"
+              alt="Zestaw dla początkujących - Akwarela"
+              class="starter-kit-image"
+              loading="lazy"
+            >
+            <div class="starter-kit-info">
+              <span class="starter-kit-badge">Zestaw startowy</span>
+              <h3 class="starter-kit-title">Akwarela dla początkujących</h3>
+              <p class="starter-kit-description">Wszystko czego potrzebujesz do malowania akwarelami: farby, pędzle specjalistyczne i papier akwarelowy.</p>
+              <ul class="starter-kit-features">
+                <li>✓ 36 kolorów akwarelowych</li>
+                <li>✓ 8 pędzli do akwareli</li>
+                <li>✓ Blok papieru akwarelowego A3</li>
+                <li>✓ Paleta i pojemnik na wodę</li>
+              </ul>
+              <div class="starter-kit-price">
+                <span class="price-current">249,99 zł</span>
+                <span class="price-old">379,99 zł</span>
+              </div>
+              <a href="/zestawy/akwarela-start" class="starter-kit-cta">Zobacz zestaw</a>
+            </div>
+          </article>
+
+          <article class="starter-kit-card">
+            <img
+              src="https://images.unsplash.com/photo-1596548438137-d51ea5c83ca5?w=600&h=400&fit=crop"
+              alt="Zestaw dla początkujących - Malarstwo olejne"
+              class="starter-kit-image"
+              loading="lazy"
+            >
+            <div class="starter-kit-info">
+              <span class="starter-kit-badge">Zestaw startowy</span>
+              <h3 class="starter-kit-title">Malarstwo olejne dla początkujących</h3>
+              <p class="starter-kit-description">Poznaj klasyczne techniki malarskie z profesjonalnymi farbami olejnymi i akcesoriami.</p>
+              <ul class="starter-kit-features">
+                <li>✓ 18 farb olejnych Master Series</li>
+                <li>✓ 12 pędzli naturalnych</li>
+                <li>✓ 2 płótna 40x50cm</li>
+                <li>✓ Olej lniany i terpentyna</li>
+              </ul>
+              <div class="starter-kit-price">
+                <span class="price-current">399,99 zł</span>
+                <span class="price-old">599,99 zł</span>
+              </div>
+              <a href="/zestawy/olej-start" class="starter-kit-cta">Zobacz zestaw</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRY PLANSZOWE -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="section-emoji">🎲</span>
+            Gry planszowe
+          </h2>
+          <a href="/gry-planszowe" class="view-all">Zobacz wszystkie →</a>
+        </div>
+        <div class="product-grid">
+          <!-- Board Game 1 -->
+          <article class="product-card">
+            <a href="/produkt/catan">
+              <img
+                src="https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?w=400&h=400&fit=crop"
+                alt="Osadnicy z Catanu - gra planszowa"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-bestseller">Bestseller</span>
+                <h3 class="product-title">Osadnicy z Catanu - Gra strategiczna</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(567)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">139,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Board Game 2 -->
+          <article class="product-card">
+            <a href="/produkt/ticket-to-ride">
+              <img
+                src="https://images.unsplash.com/photo-1606167668584-78701c57f13d?w=400&h=400&fit=crop"
+                alt="Ticket to Ride - gra planszowa"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-new">Nowość</span>
+                <h3 class="product-title">Ticket to Ride Europa - Gra rodzinna</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(423)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">169,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Board Game 3 -->
+          <article class="product-card">
+            <a href="/produkt/carcassonne">
+              <img
+                src="https://images.unsplash.com/photo-1566694271453-390536dd1f0d?w=400&h=400&fit=crop"
+                alt="Carcassonne - gra planszowa"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <h3 class="product-title">Carcassonne - Klasyczna gra planszowa</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(389)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">99,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Board Game 4 -->
+          <article class="product-card">
+            <a href="/produkt/azul">
+              <img
+                src="https://images.unsplash.com/photo-1630090781875-5ee05c20ed92?w=400&h=400&fit=crop"
+                alt="Azul - gra planszowa"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <span class="product-badge badge-bestseller">Bestseller</span>
+                <h3 class="product-title">Azul - Gra o układaniu kafelków</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(512)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">149,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+
+          <!-- Board Game 5 -->
+          <article class="product-card">
+            <a href="/produkt/7-cudow-swiata">
+              <img
+                src="https://images.unsplash.com/photo-1632501641765-e568d28b0015?w=400&h=400&fit=crop"
+                alt="7 Cudów Świata - gra planszowa"
+                class="product-image"
+                loading="lazy"
+              >
+              <div class="product-info">
+                <h3 class="product-title">7 Cudów Świata - Gra strategiczna</h3>
+                <div class="product-rating">
+                  <span class="stars">⭐⭐⭐⭐⭐</span>
+                  <span class="rating-count">(445)</span>
+                </div>
+                <div class="product-price">
+                  <span class="price-current">129,99 zł</span>
+                </div>
+                <p class="product-shipping">✓ Darmowa dostawa</p>
+              </div>
+            </a>
+            <button class="add-to-cart" aria-label="Dodaj do koszyka">Dodaj do koszyka</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div class="newsletter-content">
+        <h2>Bądź na bieżąco!</h2>
+        <p>Zapisz się do newslettera i otrzymuj informacje o promocjach i nowościach</p>
+        <form class="newsletter-form">
+          <input
+            type="email"
+            class="newsletter-input"
+            placeholder="Twój adres email"
+            aria-label="Adres email"
+            required
+          >
+          <button type="submit" class="newsletter-button">Zapisz się</button>
+        </form>
+        <p class="newsletter-privacy">Szanujemy Twoją prywatność. Możesz wypisać się w każdej chwili.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>O Bemit.pl</h3>
+        <ul class="footer-links">
+          <li><a href="/o-nas">O nas</a></li>
+          <li><a href="/kontakt">Kontakt</a></li>
+          <li><a href="/regulamin">Regulamin</a></li>
+          <li><a href="/polityka-prywatnosci">Polityka prywatności</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Pomoc</h3>
+        <ul class="footer-links">
+          <li><a href="/dostawa">Dostawa</a></li>
+          <li><a href="/zwroty">Zwroty i reklamacje</a></li>
+          <li><a href="/platnosci">Płatności</a></li>
+          <li><a href="/faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Kategorie</h3>
+        <ul class="footer-links">
+          <li><a href="/farby">Farby</a></li>
+          <li><a href="/pedzle">Pędzle</a></li>
+          <li><a href="/plotna">Płótna</a></li>
+          <li><a href="/gry-planszowe">Gry planszowe</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Konto</h3>
+        <ul class="footer-links">
+          <li><a href="/konto">Moje konto</a></li>
+          <li><a href="/zamowienia">Zamówienia</a></li>
+          <li><a href="/ulubione">Ulubione</a></li>
+          <li><a href="/newsletter">Newsletter</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="payment-methods">
+        <span class="payment-icon">VISA</span>
+        <span class="payment-icon">Mastercard</span>
+        <span class="payment-icon">BLIK</span>
+        <span class="payment-icon">PayPal</span>
+        <span class="payment-icon">Przelewy24</span>
+      </div>
+      <p>&copy; 2025 Bemit.pl - Wszystkie prawa zastrzeżone</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script src="main.js"></script>
 </body>
 </html>
