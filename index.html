@@ -1,83 +1,1124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MEM — Header Demo</title>
-  <style>
-    :root{
-      --bg:#0f1220; --card:#1a1e2e; --ink:#f5f7fb; --muted:#a7adc5; --brand:#7c5cff;
-      --ring: rgba(124,92,255,.35);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#0b0e1a, #121630 40%, #0f1220);color:var(--ink);font:500 16px/1.5 system-ui, Inter, Segoe UI, Roboto, Helvetica, Arial}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(15,18,32,.7);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand img{width:28px;height:28px;border-radius:8px;display:block}
-    .navlinks{display:flex;align-items:center;gap:20px}
-    .navlinks a{color:var(--muted)}
-    .navlinks a:hover{color:var(--ink)}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:0 8px 24px var(--ring)}
-    .cta:active{transform:translateY(1px)}
-    /* Mobile */
-    .burger{display:none;background:transparent;border:0;color:var(--ink);font-size:18px}
-    @media (max-width:880px){
-      .navlinks{display:none}
-      .burger{display:inline-flex}
-      .drawer{position:fixed;inset:64px 0 auto 0;background:var(--card);border-top:1px solid rgba(255,255,255,.08);display:none}
-      .drawer.open{display:block}
-      .drawer .inner{padding:16px}
-      .drawer a{display:block;padding:12px 8px;color:var(--muted)}
-      .drawer a:hover{color:var(--ink)}
-    }
-    /* Demo hero so widać, że działa */
-    .hero{padding:80px 0}
-    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,48px);letter-spacing:.2px}
-    .hero p{margin:0 0 24px;color:var(--muted);max-width:58ch}
-  </style>
-  <script>
-    // prosty toggle dla mobile menu
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const btn=document.querySelector('#burger'); const drawer=document.querySelector('#drawer');
-      btn?.addEventListener('click', ()=> drawer.classList.toggle('open'));
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solea Holiday Homes - The Standard in property management. Partner with us at any stage of your property journey in Malta.">
+    <title>Solea Holiday Homes - The Standard</title>
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://soleaholidayhomes.com/">
+    <meta property="og:title" content="Solea Holiday Homes - The Standard in Property Management">
+    <meta property="og:description" content="Partner with us at any stage of your property journey. We set the benchmark for quality, trust, and professionalism in property management in Malta.">
+    <meta property="og:image" content="https://soleaholidayhomes.com/wp-content/uploads/2025/10/Logo-Dark.png">
+    <meta property="og:site_name" content="Solea Holiday Homes">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://soleaholidayhomes.com/">
+    <meta name="twitter:title" content="Solea Holiday Homes - The Standard in Property Management">
+    <meta name="twitter:description" content="Partner with us at any stage of your property journey. We set the benchmark for quality, trust, and professionalism in property management in Malta.">
+    <meta name="twitter:image" content="https://soleaholidayhomes.com/wp-content/uploads/2025/10/Logo-Dark.png">
+
+    <!-- Additional SEO -->
+    <meta name="theme-color" content="#1F4E79">
+    <link rel="canonical" href="https://soleaholidayhomes.com/">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="landing.css?v=20251027">
+
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img alt="" src="https://miniemporium.pl/wp-content/uploads/2025/09/Banner-v2-scaled.jpg">
-        <span>Mini Emporium Media</span>
-      </a>
-      <nav class="navlinks">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
-      </nav>
-      <button id="burger" class="burger" aria-label="Menu">☰</button>
-    </div>
-    <div id="drawer" class="drawer" aria-hidden="true">
-      <div class="inner container">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
-      </div>
-    </div>
-  </header>
 
-  <section class="hero container">
-    <h1>Transform written content into stunning visuals</h1>
-    <p>Harness the power of content + video to grow hospitality, F&B and real estate brands in Malta.</p>
-    <a class="cta" href="#get-started">Book discovery call</a>
-  </section>
+    <!-- ========== FLOATING HEADER WITH LOGO ========== -->
+    <header class="site-header">
+        <div class="header-container">
+            <a href="#hero">
+                <img src="https://soleaholidayhomes.com/wp-content/uploads/2025/10/Logo-Dark.png" alt="Solea Holiday Homes" class="site-logo">
+            </a>
+            <a href="#contact" class="header-cta">Get Started</a>
+        </div>
+    </header>
+
+    <!-- ========== HERO SECTION WITH ORGANIC SHAPE ========== -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <img src="https://soleaholidayhomes.com/wp-content/uploads/2025/10/LOGO-bright.png" alt="Solea Logo" class="hero-logo-watermark">
+        <div class="hero-content">
+            <div class="hero-tagline">THE STANDARD</div>
+            <h1 class="hero-headline">Partner with us at <span class="highlight">any stage</span> of your property journey</h1>
+            <p class="hero-subheadline">We set the benchmark for quality, trust, and professionalism in property management</p>
+            <a href="#contact" class="cta-button">Get Free Consultation</a>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ========== FOUNDER VIDEO SECTION ========== -->
+    <section id="founder" class="founder-section">
+        <div class="video-container">
+            <div class="video-header">
+                <h3 class="video-title">Meet Bert Gallea, Founder of Solea Holiday Homes</h3>
+                <p class="video-subtitle">Discover why property owners choose to partner with us</p>
+            </div>
+            <div class="video-wrapper glass-card">
+                <iframe
+                    width="100%"
+                    height="100%"
+                    src="https://www.youtube.com/embed/mA-n9sAEgNw"
+                    title="Meet Bert Gallea - Why Partner with Solea"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== VALUE PROPOSITION (PROBLEM → SOLUTION) ========== -->
+    <section id="value-proposition" class="value-prop">
+        <div class="value-container glass-card">
+            <!-- LEFT: Problems -->
+            <div class="value-side problem-side">
+                <h2 class="value-title">Managing a property shouldn't feel like a full-time job</h2>
+                <ul class="value-list">
+                    <li class="value-item">
+                        <span class="icon">❌</span>
+                        <p>Spending weekends managing guest issues?</p>
+                    </li>
+                    <li class="value-item">
+                        <span class="icon">❌</span>
+                        <p>Worried about property damage and maintenance?</p>
+                    </li>
+                    <li class="value-item">
+                        <span class="icon">❌</span>
+                        <p>Frustrated with low occupancy rates?</p>
+                    </li>
+                    <li class="value-item">
+                        <span class="icon">❌</span>
+                        <p>Drowning in admin, cleaning, and coordination?</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- RIGHT: Solutions -->
+            <div class="value-side solution-side">
+                <h2 class="value-title">We take care of everything, so you don't have to</h2>
+                <ul class="value-list">
+                    <li class="value-item">
+                        <span class="icon">✓</span>
+                        <p><strong>24/7 professional guest support</strong> — we handle every request</p>
+                    </li>
+                    <li class="value-item">
+                        <span class="icon">✓</span>
+                        <p><strong>Comprehensive insurance & quality control</strong> — your property is protected</p>
+                    </li>
+                    <li class="value-item">
+                        <span class="icon">✓</span>
+                        <p><strong>Premium listings + dynamic pricing</strong> — maximize your revenue</p>
+                    </li>
+                    <li class="value-item">
+                        <span class="icon">✓</span>
+                        <p><strong>End-to-end management</strong> — from setup to emergencies</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 5 CORE STANDARDS - CAROUSEL ========== -->
+    <section id="standards" class="standards">
+        <div class="section-header">
+            <h2 class="section-title">Our 5 Core Standards</h2>
+            <p class="section-subtitle">The foundation of exceptional property management</p>
+        </div>
+
+        <div class="property-card-carousel" data-component="property_card_carousel" aria-label="Discover properties">
+            <div class="carousel-controls">
+                <button class="carousel-nav prev" type="button" aria-label="Scroll backward">
+                    <span class="sr-only">Previous</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <button class="carousel-nav next" type="button" aria-label="Scroll forward">
+                    <span class="sr-only">Next</span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="carousel-viewport" role="region" aria-roledescription="carousel" aria-label="Solea core standards" tabindex="0">
+                <ul class="carousel-track" role="list">
+                    <li class="property-card glass-card" role="group" aria-roledescription="slide" aria-label="1 of 5: Property Setup" data-chips="Turnkey setup,Premium listings">
+                        <div class="card-media">
+                            <img class="card-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5IDE2Jz48cmVjdCB3aWR0aD0nOScgaGVpZ2h0PScxNicgZmlsbD0nJTIzYzZkNGUwJy8+PC9zdmc+" data-src="https://soleaholidayhomes.com/wp-content/uploads/2025/05/e0313c08-1157-44d8-b1e0-32df27351a6b-1.avif" alt="Property setup service showcasing a styled home interior" loading="lazy">
+                            <div class="card-overlay"></div>
+                            <div class="card-chips" aria-hidden="true"></div>
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">PROPERTY SETUP</h3>
+                            <p class="card-description">Complete turnkey solutions including staging, pro photography, inventory management, and premium listing creation.</p>
+                        </div>
+                    </li>
+
+                    <li class="property-card glass-card" role="group" aria-roledescription="slide" aria-label="2 of 5: Guest Support" data-chips="24/7 support,Concierge care">
+                        <div class="card-media">
+                            <img class="card-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5IDE2Jz48cmVjdCB3aWR0aD0nOScgaGVpZ2h0PScxNicgZmlsbD0nJTIzZjNkMWMxJy8+PC9zdmc+" data-src="https://soleaholidayhomes.com/wp-content/uploads/2025/05/f3fe76c3-f6a1-4efb-97e5-b19d1521b5f5.avif" alt="Guest support team assisting visitors" loading="lazy">
+                            <div class="card-overlay"></div>
+                            <div class="card-chips" aria-hidden="true"></div>
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">GUEST SUPPORT</h3>
+                            <p class="card-description">Always-on multilingual guest care with concierge-style guidance to elevate every stay and protect your investment.</p>
+                        </div>
+                    </li>
+
+                    <li class="property-card glass-card" role="group" aria-roledescription="slide" aria-label="3 of 5: Cleaning" data-chips="Housekeeping,Inventory care">
+                        <div class="card-media">
+                            <img class="card-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5IDE2Jz48cmVjdCB3aWR0aD0nOScgaGVpZ2h0PScxNicgZmlsbD0nJTIzZTFmMGYzJy8+PC9zdmc+" data-src="https://soleaholidayhomes.com/wp-content/uploads/2025/05/abafcebc-9467-4be9-84a7-55e4725a2c43-1.avif" alt="Professional cleaning service preparing a property" loading="lazy">
+                            <div class="card-overlay"></div>
+                            <div class="card-chips" aria-hidden="true"></div>
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">CLEANING</h3>
+                            <p class="card-description">Hotel-grade housekeeping, linen rotation, and post-stay quality checks to wow guests every time.</p>
+                        </div>
+                    </li>
+
+                    <li class="property-card glass-card" role="group" aria-roledescription="slide" aria-label="4 of 5: Maintenance" data-chips="Preventive checks,Trusted partners">
+                        <div class="card-media">
+                            <img class="card-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5IDE2Jz48cmVjdCB3aWR0aD0nOScgaGVpZ2h0PScxNicgZmlsbD0nJTIzZGNkNWM2Jy8+PC9zdmc+" data-src="https://soleaholidayhomes.com/wp-content/uploads/2025/05/fa2d3593-3827-44f1-a7ab-c965eb681d4e.jpg" alt="Maintenance professional inspecting property fixtures" loading="lazy">
+                            <div class="card-overlay"></div>
+                            <div class="card-chips" aria-hidden="true"></div>
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">MAINTENANCE</h3>
+                            <p class="card-description">Preventive inspections and on-demand repairs handled by vetted specialists with transparent reporting.</p>
+                        </div>
+                    </li>
+
+                    <li class="property-card glass-card" role="group" aria-roledescription="slide" aria-label="5 of 5: Emergencies" data-chips="24/7 response,Risk mitigation">
+                        <div class="card-media">
+                            <img class="card-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCA5IDE2Jz48cmVjdCB3aWR0aD0nOScgaGVpZ2h0PScxNicgZmlsbD0nJTIzZjNjOWM5Jy8+PC9zdmc+" data-src="https://soleaholidayhomes.com/wp-content/uploads/2024/10/3fed444a-2e43-48ef-ab0d-17e80910c6d3.jpeg" alt="Emergency response team ready to assist property guests" loading="lazy">
+                            <div class="card-overlay"></div>
+                            <div class="card-chips" aria-hidden="true"></div>
+                        </div>
+                        <div class="card-text">
+                            <h3 class="card-title">EMERGENCIES</h3>
+                            <p class="card-description">Crisis-ready protocols with rapid escalation paths and live updates so owners stay informed, not stressed.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REVENUE COMPARISON SECTION ========== -->
+    <section id="revenue-calculator" class="revenue-calculator">
+        <div class="revenue-container">
+            <!-- Hero Hook -->
+            <div class="revenue-header">
+                <h2 class="revenue-title">Could You Be Earning <span class="highlight-amount">€4,940 More</span> Per Year?</h2>
+                <p class="revenue-subtitle">The surprising math behind our 75% occupancy guarantee</p>
+            </div>
+
+            <!-- Comparison Cards -->
+            <div class="comparison-grid">
+                <!-- Self-Managed Card -->
+                <div class="comparison-card glass-card self-managed">
+                    <div class="card-header">
+                        <h3 class="card-title">Self-Managed</h3>
+                        <div class="occupancy-badge">
+                            <span class="occupancy-label">Avg Occupancy</span>
+                            <span class="occupancy-value" data-value="61">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="revenue-bar-container">
+                        <div class="revenue-bar" data-percent="61">
+                            <div class="bar-fill self-managed-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="revenue-breakdown">
+                        <div class="revenue-line gross">
+                            <span class="label">Gross Revenue</span>
+                            <span class="amount" data-value="18925">€0</span>
+                        </div>
+                        <div class="revenue-line cost">
+                            <span class="label">Hard Costs</span>
+                            <span class="amount" data-value="3000">-€0</span>
+                        </div>
+                        <div class="revenue-line cost">
+                            <span class="label">Your Time (150hrs @ €15/hr)</span>
+                            <span class="amount" data-value="2250">-€0</span>
+                        </div>
+                        <div class="revenue-line net">
+                            <span class="label">Your Net Income</span>
+                            <span class="amount net-value self-managed-net" data-value="13675">€0</span>
+                        </div>
+                    </div>
+
+                    <div class="details-accordion" id="self-managed-details">
+                        <div class="details-content">
+                            <h4>The Self-Managed Reality:</h4>
+                            <ul class="breakdown-list">
+                                <li><strong>61% avg occupancy</strong> (industry standard)</li>
+                                <li>€85/night × 365 days × 61% = <strong>€18,925</strong></li>
+                            </ul>
+                            <h4>Hidden Costs You Pay:</h4>
+                            <ul class="breakdown-list costs">
+                                <li>Laundry (50 check-ins × €35) = <strong>€1,750</strong></li>
+                                <li>Maintenance (~25 calls × €50) = <strong>€1,250</strong></li>
+                                <li>Your time (150 hrs × €15/hr) = <strong>€2,250</strong></li>
+                            </ul>
+                            <p class="breakdown-summary">Always on duty: 24/7 emergency response, weekend management, endless coordination.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VS Divider -->
+                <div class="vs-divider">
+                    <span class="vs-text">VS</span>
+                    <div class="difference-badge">
+                        <span class="difference-label">You Earn</span>
+                        <span class="difference-amount" data-value="4940">+€0</span>
+                        <span class="difference-label">More Per Year</span>
+                    </div>
+                    <button class="central-breakdown-btn">
+                        <span>See Complete Comparison</span>
+                        <span class="arrow">▼</span>
+                    </button>
+                </div>
+
+                <!-- With Solea Card -->
+                <div class="comparison-card glass-card with-solea">
+                    <div class="card-header">
+                        <h3 class="card-title">With Solea</h3>
+                        <div class="occupancy-badge solea">
+                            <span class="occupancy-label">Guaranteed Occupancy</span>
+                            <span class="occupancy-value" data-value="75">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="revenue-bar-container">
+                        <div class="revenue-bar" data-percent="75">
+                            <div class="bar-fill solea-fill"></div>
+                        </div>
+                    </div>
+
+                    <div class="revenue-breakdown">
+                        <div class="revenue-line gross">
+                            <span class="label">Gross Revenue</span>
+                            <span class="amount" data-value="23269">€0</span>
+                        </div>
+                        <div class="revenue-line fee">
+                            <span class="label">Our 20% Fee (All Included)</span>
+                            <span class="amount" data-value="4654">-€0</span>
+                        </div>
+                        <div class="revenue-line spacer"></div>
+                        <div class="revenue-line net">
+                            <span class="label">Your Net Income</span>
+                            <span class="amount net-value" data-value="18615">€0</span>
+                        </div>
+                    </div>
+
+                    <div class="details-accordion" id="solea-details">
+                        <div class="details-content">
+                            <h4>With Solea's Management:</h4>
+                            <ul class="breakdown-list">
+                                <li><strong>75% avg occupancy</strong> (our track record)</li>
+                                <li>€85/night × 365 days × 75% = <strong>€23,269</strong></li>
+                            </ul>
+                            <h4>Our 20% Fee Includes Everything:</h4>
+                            <ul class="breakdown-list benefits">
+                                <li>✓ All cleaning & professional laundry</li>
+                                <li>✓ All maintenance & repairs</li>
+                                <li>✓ 24/7 multilingual guest support</li>
+                                <li>✓ Professional photography & listings</li>
+                                <li>✓ Dynamic pricing optimization</li>
+                                <li>✓ Full property management</li>
+                            </ul>
+                            <p class="breakdown-summary success">Your time off is actually time off. Zero stress, maximum income.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom CTA -->
+            <div class="revenue-cta">
+                <p class="cta-text">Based on €85/night. <strong>Your property, your rate—higher earnings guaranteed.</strong></p>
+                <a href="#contact" class="cta-button">Calculate Your Income</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS & GALLERY ========== -->
+    <section id="testimonials" class="testimonials">
+        <!-- Testimonials Carousel -->
+        <div class="testimonials-carousel">
+            <div class="testimonial-card glass-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"Solea transformed my property into a premium rental. Their attention to detail and professional approach exceeded all expectations. I can finally enjoy passive income without the stress."</p>
+                <div class="testimonial-author">
+                    <strong>Maria R.</strong>
+                    <span>Property Owner, Valletta</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card glass-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The team at Solea handles everything seamlessly. From guest communication to maintenance, I never worry about my property. Their standard truly sets them apart."</p>
+                <div class="testimonial-author">
+                    <strong>John M.</strong>
+                    <span>Property Owner, Sliema</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card glass-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I was hesitant about renting out my family home, but Solea's professionalism gave me complete peace of mind. My revenue has increased 35% and I can still use it when I visit."</p>
+                <div class="testimonial-author">
+                    <strong>Sophie L.</strong>
+                    <span>Property Owner, Gozo</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Carousel -->
+        <div class="photo-carousel">
+            <div class="photo-slide glass-card">
+                <img src="https://soleaholidayhomes.com/storage/2025/05/Featuer-image-elegant.avif" alt="Premium Property" loading="lazy">
+            </div>
+            <div class="photo-slide glass-card">
+                <img src="https://soleaholidayhomes.com/storage/2025/05/a9d62f22-65b2-4ceb-8f4e-8b1c207622fe-1.jpg" alt="Luxury Interior" loading="lazy">
+            </div>
+            <div class="photo-slide glass-card">
+                <img src="https://soleaholidayhomes.com/storage/2024/07/GZO-Gharb-Razzett-4-scaled.jpg" alt="Beautiful Property" loading="lazy">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FAQ SECTION ========== -->
+    <section id="faq" class="faq">
+        <div class="section-header">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Everything you need to know about partnering with Solea</p>
+        </div>
+
+        <div class="faq-container">
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>How do I start listing my property with Solea?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Getting started is simple. Fill out our contact form below or reach out directly via WhatsApp. We'll schedule a free consultation to assess your property, discuss your goals, and create a customized management plan tailored to your needs.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>What are the fees or commission structure?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Our commission structure is transparent and competitive, typically ranging from 20-25% of rental income depending on the level of service required. This covers all management, marketing, guest support, cleaning coordination, and maintenance oversight. We'll provide a detailed breakdown during your consultation.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>How do you handle maintenance and emergencies?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>We have a 24/7 rapid response system for emergencies. Our network of trusted local contractors handles routine maintenance and repairs promptly. We conduct regular property inspections and address issues proactively before they become problems. You'll receive detailed reports and photos of all work completed.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>What type of properties do you manage?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>We manage a diverse portfolio of short-term rental properties across Malta and Gozo, including apartments, townhouses, villas, and traditional Maltese homes. Whether you have a studio in Sliema or a farmhouse in Gozo, if it meets our quality standards, we'd love to partner with you.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>Can I still use my property personally?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Absolutely! Many of our owners block out specific dates for personal use. We work with you to create a calendar that maximizes rental income while ensuring you can enjoy your property whenever you wish. Simply let us know your preferred dates in advance, and we'll manage the booking schedule accordingly.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>How quickly will I see results?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Most properties are listed and receiving bookings within 2-3 weeks of signing with us. This includes professional photography, listing optimization, and initial marketing. Peak earning potential is typically reached within the first full season as we build your property's reputation and review profile.</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary class="faq-question">
+                    <span>What makes Solea different from other property managers?</span>
+                    <span class="faq-icon">+</span>
+                </summary>
+                <div class="faq-answer">
+                    <p>Our commitment to "The Standard" sets us apart. We're not just property managers—we're partners in your success. From our 5 Core Standards to our local expertise and personal touch, we treat every property as if it were our own. Our owners benefit from premium marketing, transparent communication, and a team that genuinely cares about maximizing both your income and property value.</p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- ========== LEAD CAPTURE / CTA ========== -->
+    <section id="contact" class="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <h2 class="contact-title">Let's manage your property with the Solea Standard</h2>
+                <p class="contact-subtitle">Join property owners who trust us to maximize their rental income while maintaining complete peace of mind.</p>
+
+                <form id="lead-form" class="lead-form glass-card" action="https://formspree.io/f/xyznqrrr" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required placeholder="john@example.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="+356 1234 5678">
+                        </div>
+                        <div class="form-group">
+                            <label for="property-type">Property Type *</label>
+                            <select id="property-type" name="property_type" required>
+                                <option value="">Select property type</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="townhouse">Townhouse</option>
+                                <option value="villa">Villa</option>
+                                <option value="farmhouse">Farmhouse</option>
+                                <option value="penthouse">Penthouse</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="property-count">How many properties?</label>
+                        <select id="property-count" name="property_count">
+                            <option value="">Select quantity</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4-5">4-5</option>
+                            <option value="6+">6+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Property Location *</label>
+                        <input type="text" id="location" name="location" required placeholder="e.g., Sliema, Valletta, Gozo">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Tell us about your property (optional)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Any additional details about your property or questions you have..."></textarea>
+                    </div>
+
+                    <button type="submit" class="cta-button submit-button">Get Your Free Consultation</button>
+
+                    <p class="form-privacy">By submitting this form, you agree to be contacted by Solea Holiday Homes regarding your property management needs.</p>
+                </form>
+
+                <div class="form-success glass-card hidden" id="form-success">
+                    <div class="success-icon">✓</div>
+                    <h3>Thank You!</h3>
+                    <p>We've received your inquiry and will be in touch within 24 hours to discuss how we can help maximize your property's potential.</p>
+                </div>
+
+                <div class="alternative-contact">
+                    <p>Prefer to chat directly?</p>
+                    <a href="https://wa.me/35679797979" target="_blank" rel="noopener noreferrer" class="whatsapp-button glass-card">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.472 14.382C17.179 14.235 15.762 13.533 15.496 13.437C15.23 13.341 15.035 13.293 14.841 13.587C14.647 13.881 14.091 14.533 13.921 14.728C13.751 14.923 13.581 14.948 13.288 14.801C12.995 14.654 12.081 14.341 10.994 13.368C10.146 12.609 9.577 11.673 9.407 11.379C9.237 11.085 9.389 10.927 9.536 10.78C9.668 10.648 9.829 10.437 9.976 10.267C10.123 10.097 10.171 9.977 10.267 9.782C10.363 9.587 10.315 9.417 10.241 9.27C10.167 9.123 9.579 7.705 9.338 7.117C9.103 6.545 8.864 6.622 8.684 6.613C8.514 6.604 8.319 6.602 8.125 6.602C7.931 6.602 7.614 6.676 7.348 6.97C7.082 7.264 6.329 7.966 6.329 9.384C6.329 10.802 7.372 12.17 7.519 12.365C7.666 12.56 9.577 15.518 12.534 16.768C13.234 17.068 13.781 17.243 14.209 17.373C14.912 17.6 15.549 17.568 16.053 17.493C16.613 17.409 17.772 16.793 18.013 16.12C18.254 15.447 18.254 14.874 18.18 14.752C18.106 14.63 17.765 14.529 17.472 14.382ZM12.006 21.785H12.001C10.264 21.785 8.561 21.299 7.085 20.385L6.742 20.181L3.239 21.134L4.208 17.719L3.982 17.365C2.982 15.839 2.454 14.064 2.455 12.246C2.457 6.988 6.747 2.698 12.01 2.698C14.564 2.699 16.965 3.69 18.768 5.496C20.571 7.302 21.559 9.705 21.558 12.257C21.556 17.515 17.266 21.785 12.006 21.785ZM20.471 3.525C18.282 1.333 15.367 0.125 12.006 0.123C5.437 0.123 0.095 5.464 0.092 12.035C0.091 14.156 0.659 16.224 1.738 18.039L0 24L6.097 22.292C7.849 23.277 9.844 23.798 11.872 23.799H11.878C18.447 23.799 23.789 18.458 23.792 11.887C23.793 8.527 22.585 5.612 20.471 3.525Z" fill="currentColor"/>
+                        </svg>
+                        Message us on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Solea Holiday Homes</h3>
+                <p class="footer-tagline">The Standard in property management</p>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p>Email: <a href="mailto:stay@soleaholidayhomes.com">stay@soleaholidayhomes.com</a></p>
+            </div>
+
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/Soleaholiday" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                        </svg>
+                    </a>
+                    <a href="https://instagram.com/soleaholidayhomes" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Solea Holiday Homes. All rights reserved.</p>
+            <p><a href="https://soleaholidayhomes.com/terms-condition/" target="_blank" rel="noopener noreferrer">Terms &amp; Conditions</a></p>
+        </div>
+    </footer>
+
+<script>
+/* ========================================
+   SOLEA HOLIDAY HOMES - LANDING PAGE SCRIPTS
+   Interactive functionality and form handling
+   ======================================== */
+
+// ========== DOM CONTENT LOADED ========== //
+document.addEventListener('DOMContentLoaded', function() {
+    initHeaderScroll();
+    initSmoothScroll();
+    initFAQAccordion();
+    initCoreStandardsCarousel();
+    initScrollAnimations();
+    initFormHandler();
+    initRevenueCalculator();
+});
+
+// ========== HEADER SCROLL EFFECT ========== //
+function initHeaderScroll() {
+    const header = document.querySelector('.site-header');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
+
+// ========== SMOOTH SCROLL FOR CTA BUTTONS ========== //
+function initSmoothScroll() {
+    const ctaButtons = document.querySelectorAll('a[href^="#"]');
+
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+
+            if (targetSection) {
+                const headerHeight = document.querySelector('.site-header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ========== FAQ ACCORDION FUNCTIONALITY ========== //
+function initFAQAccordion() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    if (!faqItems.length) return;
+
+    faqItems.forEach(item => {
+        item.addEventListener('toggle', () => {
+            if (!item.open) return;
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.open = false;
+                }
+            });
+        });
+    });
+}
+
+// ========== SCROLL-TRIGGERED ANIMATIONS ========== //
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+
+                // Trigger staggered animations for children
+                const children = entry.target.querySelectorAll('.testimonial-card, .photo-slide');
+                children.forEach((child, index) => {
+                    setTimeout(() => {
+                        child.style.opacity = '1';
+                        child.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections
+    const sections = document.querySelectorAll('.standards, .testimonials, .faq, .contact');
+    sections.forEach(section => observer.observe(section));
+
+    // Set initial state for cards
+    const cards = document.querySelectorAll('.testimonial-card, .photo-slide');
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+}
+
+// ========== CORE STANDARDS CAROUSEL ========== //
+function initCoreStandardsCarousel() {
+    const carousel = document.querySelector('.property-card-carousel');
+    if (!carousel) return;
+
+    const viewport = carousel.querySelector('.carousel-viewport');
+    const track = carousel.querySelector('.carousel-track');
+    const cards = Array.from(track.querySelectorAll('.property-card'));
+    const prevButton = carousel.querySelector('.carousel-nav.prev');
+    const nextButton = carousel.querySelector('.carousel-nav.next');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Auto-generate chips and labels
+    cards.forEach((card, index) => {
+        const chipsContainer = card.querySelector('.card-chips');
+        const chipValues = (card.dataset.chips || '')
+            .split(',')
+            .map(chip => chip.trim())
+            .filter(Boolean)
+            .slice(0, 3);
+
+        if (chipsContainer) {
+            chipsContainer.innerHTML = '';
+            chipValues.forEach(value => {
+                const chip = document.createElement('span');
+                chip.className = 'card-chip';
+                chip.textContent = value;
+                chipsContainer.appendChild(chip);
+            });
+        }
+
+        const title = card.querySelector('.card-title');
+        const titleText = title ? title.textContent.trim() : `Card ${index + 1}`;
+        card.setAttribute('aria-label', `${index + 1} of ${cards.length}: ${titleText}`);
+    });
+
+    // Lazy-load images with LQIP blur transition
+    const lazyObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const img = entry.target;
+            const dataSrc = img.dataset.src;
+
+            if (dataSrc) {
+                img.src = dataSrc;
+                img.addEventListener('load', () => {
+                    img.setAttribute('data-loaded', 'true');
+                }, { once: true });
+            }
+
+            observer.unobserve(img);
+        });
+    }, {
+        root: null,
+        rootMargin: '200px 0px',
+        threshold: 0.1
+    });
+
+    cards.forEach(card => {
+        const img = card.querySelector('.card-image');
+        if (img && img.dataset.src) {
+            lazyObserver.observe(img);
+        }
+    });
+
+    // Visibility animation
+    const visibilityObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        root: viewport,
+        threshold: 0.4
+    });
+
+    cards.forEach(card => visibilityObserver.observe(card));
+
+    // Carousel navigation
+    function getGap() {
+        const styles = window.getComputedStyle(track);
+        const gapValue = styles.columnGap || styles.gap || '0';
+        return parseFloat(gapValue) || 0;
+    }
+
+    function scrollByCards(direction = 1) {
+        if (!cards.length) return;
+
+        const cardWidth = cards[0].getBoundingClientRect().width;
+        const gap = getGap();
+        const distance = (cardWidth + gap) * direction;
+
+        viewport.scrollBy({
+            left: distance,
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+        });
+    }
+
+    function updateNavState() {
+        if (!prevButton || !nextButton) return;
+
+        const maxScroll = viewport.scrollWidth - viewport.clientWidth;
+        prevButton.disabled = viewport.scrollLeft <= 1;
+        nextButton.disabled = viewport.scrollLeft >= (maxScroll - 1);
+    }
+
+    const throttledNavUpdate = debounce(updateNavState, 50);
+
+    prevButton?.addEventListener('click', () => scrollByCards(-1));
+    nextButton?.addEventListener('click', () => scrollByCards(1));
+    viewport.addEventListener('scroll', throttledNavUpdate, { passive: true });
+    window.addEventListener('resize', debounce(updateNavState, 150));
+
+    viewport.addEventListener('keydown', event => {
+        if (event.key === 'ArrowRight') {
+            event.preventDefault();
+            scrollByCards(1);
+        } else if (event.key === 'ArrowLeft') {
+            event.preventDefault();
+            scrollByCards(-1);
+        }
+    });
+
+    // Initial states
+    updateNavState();
+}
+
+
+// ========== FORM VALIDATION & SUBMISSION ========== //
+function initFormHandler() {
+    const form = document.getElementById('lead-form');
+    const formSuccess = document.getElementById('form-success');
+
+    if (!form) return;
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        // Validate form
+        if (!validateForm(form)) {
+            return;
+        }
+
+        // Show loading state
+        const submitButton = form.querySelector('.submit-button');
+        const originalButtonText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+        submitButton.disabled = true;
+
+        try {
+            // Prepare FormData for Formspree
+            const formData = new FormData(form);
+
+            // Add additional tracking fields
+            formData.append('submitted_at', new Date().toISOString());
+            formData.append('source', 'Landing Page - New Owners');
+
+            // Send to Formspree
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (response.ok) {
+                // Hide form, show success message
+                form.classList.add('hidden');
+                formSuccess.classList.remove('hidden');
+
+                // Track conversion (Google Analytics, Facebook Pixel, etc.)
+                trackConversion(Object.fromEntries(formData));
+            } else {
+                throw new Error('Submission failed');
+            }
+
+        } catch (error) {
+            console.error('Form submission error:', error);
+            alert('There was an error submitting your form. Please try again or contact us directly via WhatsApp.');
+
+            // Reset button
+            submitButton.textContent = originalButtonText;
+            submitButton.disabled = false;
+        }
+    });
+}
+
+// ========== FORM VALIDATION ========== //
+function validateForm(form) {
+    const requiredFields = form.querySelectorAll('[required]');
+    let isValid = true;
+
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            isValid = false;
+            field.style.borderColor = '#ff6b6b';
+
+            // Reset border color on input
+            field.addEventListener('input', function() {
+                this.style.borderColor = '#ddd';
+            }, { once: true });
+        }
+    });
+
+    // Validate email format
+    const emailField = form.email;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailField.value && !emailRegex.test(emailField.value)) {
+        isValid = false;
+        emailField.style.borderColor = '#ff6b6b';
+        alert('Please enter a valid email address.');
+    }
+
+    // Validate phone format (basic)
+    const phoneField = form.phone;
+    const phoneRegex = /^[\d\s\+\-\(\)]+$/;
+    if (phoneField.value && !phoneRegex.test(phoneField.value)) {
+        isValid = false;
+        phoneField.style.borderColor = '#ff6b6b';
+        alert('Please enter a valid phone number.');
+    }
+
+    if (!isValid) {
+        alert('Please fill in all required fields correctly.');
+    }
+
+    return isValid;
+}
+
+// ========== CONVERSION TRACKING ========== //
+function trackConversion(data) {
+    // Google Analytics 4
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+            'event_category': 'Lead Form',
+            'event_label': 'New Owner Inquiry',
+            'value': data.property_type
+        });
+    }
+
+    // Facebook Pixel
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: 'Property Owner Inquiry',
+            content_category: data.property_type,
+            value: 1.00,
+            currency: 'EUR'
+        });
+    }
+
+    // LinkedIn Insight Tag
+    if (typeof _linkedin_data_partner_ids !== 'undefined') {
+        window.lintrk('track', { conversion_id: 'YOUR_CONVERSION_ID' });
+    }
+
+    console.log('📊 Conversion tracked:', data);
+}
+
+// ========== UTILITY: DEBOUNCE FUNCTION ========== //
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// ========== REVENUE CALCULATOR ANIMATIONS ========== //
+function initRevenueCalculator() {
+    const revenueSection = document.querySelector('.revenue-calculator');
+    if (!revenueSection) return;
+
+    let hasAnimated = false;
+
+    // Intersection Observer for scroll-triggered animations
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !hasAnimated) {
+                hasAnimated = true;
+                animateRevenue();
+            }
+        });
+    }, observerOptions);
+
+    observer.observe(revenueSection);
+
+    // Animate numbers with counter effect
+    function animateNumber(element, finalValue, duration = 2000, isPercentage = false, isNegative = false) {
+        const startValue = 0;
+        const startTime = performance.now();
+        const prefix = isNegative ? '-€' : '€';
+        const suffix = isPercentage ? '%' : '';
+
+        function updateNumber(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function for smooth animation
+            const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+            const currentValue = Math.floor(startValue + (finalValue - startValue) * easeOutQuart);
+
+            if (isPercentage) {
+                element.textContent = currentValue + suffix;
+            } else {
+                element.textContent = prefix + currentValue.toLocaleString();
+            }
+
+            if (progress < 1) {
+                requestAnimationFrame(updateNumber);
+            } else {
+                // Ensure final value is exact
+                if (isPercentage) {
+                    element.textContent = finalValue + suffix;
+                } else {
+                    element.textContent = prefix + finalValue.toLocaleString();
+                }
+            }
+        }
+
+        requestAnimationFrame(updateNumber);
+    }
+
+    // Main animation function
+    function animateRevenue() {
+        // Animate occupancy percentages
+        const occupancyValues = document.querySelectorAll('.occupancy-value');
+        occupancyValues.forEach(element => {
+            const finalValue = parseInt(element.dataset.value);
+            animateNumber(element, finalValue, 1500, true);
+        });
+
+        // Animate revenue bars
+        const revenueBars = document.querySelectorAll('.revenue-bar');
+        revenueBars.forEach(bar => {
+            const percent = parseInt(bar.dataset.percent);
+            const fill = bar.querySelector('.bar-fill');
+            setTimeout(() => {
+                fill.style.width = percent + '%';
+            }, 200);
+        });
+
+        // Animate monetary amounts
+        const amounts = document.querySelectorAll('.revenue-breakdown .amount');
+        amounts.forEach(element => {
+            const finalValue = parseInt(element.dataset.value);
+            const isNegative = element.closest('.revenue-line')?.classList.contains('cost') ||
+                              element.closest('.revenue-line')?.classList.contains('fee') ||
+                              finalValue < 0;
+            setTimeout(() => {
+                animateNumber(element, Math.abs(finalValue), 2000, false, isNegative);
+            }, 500);
+        });
+
+        // Animate difference badge
+        const differenceAmount = document.querySelector('.difference-amount');
+        if (differenceAmount) {
+            const finalValue = parseInt(differenceAmount.dataset.value);
+            setTimeout(() => {
+                animateNumber(differenceAmount, finalValue, 2000, false, false);
+            }, 1000);
+        }
+    }
+
+    // Handle central breakdown button
+    const centralButton = document.querySelector('.central-breakdown-btn');
+    if (centralButton) {
+        centralButton.addEventListener('click', function() {
+            const selfManagedAccordion = document.getElementById('self-managed-details');
+            const soleaAccordion = document.getElementById('solea-details');
+            const areOpen = selfManagedAccordion.classList.contains('open') && soleaAccordion.classList.contains('open');
+
+            // Toggle both accordions simultaneously
+            if (areOpen) {
+                selfManagedAccordion.classList.remove('open');
+                soleaAccordion.classList.remove('open');
+                this.classList.remove('active');
+            } else {
+                selfManagedAccordion.classList.add('open');
+                soleaAccordion.classList.add('open');
+                this.classList.add('active');
+            }
+        });
+    }
+}
+
+// ========== CONSOLE SIGNATURE ========== //
+console.log('%c🏠 Solea Holiday Homes - The Standard', 'color: #C9A227; font-size: 20px; font-weight: bold;');
+console.log('%cLanding page loaded successfully', 'color: #1F4E79; font-size: 14px;');
+</script>
+
 </body>
 </html>
