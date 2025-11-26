@@ -1,83 +1,717 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MEM — Header Demo</title>
-  <style>
-    :root{
-      --bg:#0f1220; --card:#1a1e2e; --ink:#f5f7fb; --muted:#a7adc5; --brand:#7c5cff;
-      --ring: rgba(124,92,255,.35);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#0b0e1a, #121630 40%, #0f1220);color:var(--ink);font:500 16px/1.5 system-ui, Inter, Segoe UI, Roboto, Helvetica, Arial}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:0 16px}
-    /* Header */
-    .site-header{position:sticky;top:0;z-index:50;background:rgba(15,18,32,.7);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(255,255,255,.08)}
-    .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:700}
-    .brand img{width:28px;height:28px;border-radius:8px;display:block}
-    .navlinks{display:flex;align-items:center;gap:20px}
-    .navlinks a{color:var(--muted)}
-    .navlinks a:hover{color:var(--ink)}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#fff;padding:10px 14px;border-radius:12px;font-weight:700;box-shadow:0 8px 24px var(--ring)}
-    .cta:active{transform:translateY(1px)}
-    /* Mobile */
-    .burger{display:none;background:transparent;border:0;color:var(--ink);font-size:18px}
-    @media (max-width:880px){
-      .navlinks{display:none}
-      .burger{display:inline-flex}
-      .drawer{position:fixed;inset:64px 0 auto 0;background:var(--card);border-top:1px solid rgba(255,255,255,.08);display:none}
-      .drawer.open{display:block}
-      .drawer .inner{padding:16px}
-      .drawer a{display:block;padding:12px 8px;color:var(--muted)}
-      .drawer a:hover{color:var(--ink)}
-    }
-    /* Demo hero so widać, że działa */
-    .hero{padding:80px 0}
-    .hero h1{margin:0 0 10px;font-size:clamp(28px,5vw,48px);letter-spacing:.2px}
-    .hero p{margin:0 0 24px;color:var(--muted);max-width:58ch}
-  </style>
-  <script>
-    // prosty toggle dla mobile menu
-    document.addEventListener('DOMContentLoaded', ()=>{
-      const btn=document.querySelector('#burger'); const drawer=document.querySelector('#drawer');
-      btn?.addEventListener('click', ()=> drawer.classList.toggle('open'));
-    });
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinola Hotel | Boutique Luxury in the Heart of St. Julian's, Malta</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#">
-        <img alt="" src="https://miniemporium.pl/wp-content/uploads/2025/09/Banner-v2-scaled.jpg">
-        <span>Mini Emporium Media</span>
-      </a>
-      <nav class="navlinks">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
-      </nav>
-      <button id="burger" class="burger" aria-label="Menu">☰</button>
-    </div>
-    <div id="drawer" class="drawer" aria-hidden="true">
-      <div class="inner container">
-        <a href="#work">Work</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a class="cta" href="#get-started">Get Started</a>
-      </div>
-    </div>
-  </header>
+<body class="antialiased text-gray-800 smooth-scroll">
 
-  <section class="hero container">
-    <h1>Transform written content into stunning visuals</h1>
-    <p>Harness the power of content + video to grow hospitality, F&B and real estate brands in Malta.</p>
-    <a class="cta" href="#get-started">Book discovery call</a>
-  </section>
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://staging.luxfairhotels.com/wp-content/uploads/2025/10/AdobeStock_885380280_Editorial_Use_Only-scaled.jpeg"
+                 alt="Spinola Hotel Exterior"
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-in-up">
+            <img src="https://staging.luxfairhotels.com/wp-content/uploads/2025/10/Sin-titulo20.png"
+                 alt="Spinola Hotel Logo"
+                 class="hero-logo mx-auto mb-16">
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 text-balance">
+                Where Mediterranean<br>Elegance Meets Malta
+            </h1>
+            <p class="text-xl md:text-2xl text-white mb-8 text-balance max-w-3xl mx-auto font-light">
+                Experience boutique luxury in the heart of Spinola Bay,<br class="hidden sm:block">
+                where every sunset paints a new masterpiece
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#book" class="bg-[#BAA183] text-white px-8 py-4 rounded-lg hover:bg-[#a38d71] transition-all transform hover:scale-105 font-medium text-lg">
+                    Book Your Stay
+                </a>
+                <a href="#rooms" class="bg-white bg-opacity-10 backdrop-blur-sm text-white px-8 py-4 rounded-lg hover:bg-opacity-20 transition-all border border-white border-opacity-30 font-medium text-lg">
+                    Explore Rooms
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Quick Booking Widget -->
+    <section id="book" class="relative -mt-16 z-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="booking-widget shadow-2xl rounded-2xl p-8 border border-gray-200">
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+                <link type="text/css" rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css">
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+                <div id="searchBar" class="eGDS_Search">
+                    <div id="divHotels"><label id="FixedHotel" style="display: none;">14</label></div>
+                    <div>
+                        <span id="CheckInLabel">Check-In</span>
+                        <div class="Calendar">
+                            <input type="text" id="searchStartDate" class="DateFrom" readonly="readonly">
+                        </div>
+                    </div>
+                    <div>
+                        <span id="CheckOutDateLabel">Check-Out</span>
+                        <div class="Calendar">
+                            <input type="text" id="searchEndDate" class="DateTo" readonly="readonly">
+                        </div>
+                    </div>
+                    <div>
+                        <a id="aSearch" class="maxSearchBttn" href="https://secure2.e-gdscloud.com/SpinolaHotel/">Search</a>
+                    </div>
+                    <label id="searchLang" style="display: none;">en-GB</label><label id="searchDateFormat" style="display: none;">dd/mm/yy</label>
+                </div>
+                <script type="text/javascript">
+                var searchWithChildrenAges;
+                $.ajax({
+                url: $("#aSearch").attr("href") + "/Integration/IntegrationJSON.asmx/GetBookingEngineSearchParameters",
+                type: 'POST',
+                success: function (data) {
+                successCallback(data);
+                },
+                error: function (error) {
+                if (error.status == 200) {
+                successCallback(error.responseText);
+                }
+                }
+                });
+                function successCallback(response) {
+                if (response.charAt(0) == "(" && response.charAt(response.length - 1) == ")") {
+                response = response.slice(1, -1);
+                }
+                $xml = $($.parseXML(response));
+                if ($("#selectAdults").length) {
+                for (var i = 2; i <= $xml.find("MaxAdultsCap").text(); i++) {
+                $('#selectAdults').append($('<option>', {
+                value: i,
+                id: i,
+                text: i
+                }));
+                }
+                }
+                if ($("#selectChildren").length) {
+                for (var i = 1; i <= $xml.find("MaxChildrenCap").text(); i++) {
+                $('#selectChildren').append($('<option>', {
+                value: i,
+                id: i,
+                text: i
+                }));
+                }
+                }
+                searchWithChildrenAges = $xml.find("SearchWithChildrenAges").text();
+                }
+                $("#aSearch").on("click", function (e) {
+                e.preventDefault();
+                var url = $(this).attr("href") + "RedirectFromOutSide.aspx?arrivaldate=" + $("#searchStartDate").datepicker("getDate").getDate() + "/" + ($("#searchStartDate").datepicker("getDate").getMonth() + 1) + "/" + $("#searchStartDate").datepicker("getDate").getFullYear()
+                + "&departuredate=" + + $("#searchEndDate").datepicker("getDate").getDate() + "/" + ($("#searchEndDate").datepicker("getDate").getMonth() + 1) + "/" + $("#searchEndDate").datepicker("getDate").getFullYear()
+                if (searchLang != null) {
+                url = url + "&Lang=" + $("#searchLang").text();
+                }
+                if ($("#FixedHotel").text() != '') {
+                url = url + "&hotelid=" + $("#FixedHotel").text();
+                } else if ($("#selectHotels").val() > 0) {
+                url = url + "&hotelid=" + $("#selectHotels").val();
+                }
+                if ($("#selectAdults").val() > 0) {
+                url = url + "&adults=" + $("#selectAdults").val();
+                }
+                if ($("#selectChildren").val() > 0) {
+                url = url + "&children=" + $("#selectChildren").val();
+                if (searchWithChildrenAges) {
+                var ages = "";
+                $("#childrenAges").find("select").each(function () {
+                if ($(this).val() != "-") {
+                ages = ages + $(this).val() + ",";
+                }
+                });
+                if (ages != "") {
+                ages = ages.slice(0, -1);
+                url = url + "&childrenAges=" + ages;
+                }
+                }
+                }
+                if ($("#inputPromocode").length) {
+                if ($("#inputPromocode").val().trim() != "") {
+                url = url + "&promocode=" + $("#inputPromocode").val();
+                }
+                }
+                if ($("#selectRooms").val() > 0) {
+                url = url + "&nrooms=" + $("#selectRooms").val();
+                }
+                window.open(url, "_blank");
+                });
+                $(".DateFrom").datepicker({
+                dateFormat: $("#searchDateFormat").text(),
+                defaultDate: new Date(),
+                minDate: new Date(),
+                onSelect: function (date) {
+                var fromDate = $('.DateFrom').datepicker('getDate');
+                $('.DateTo').datepicker();
+                var toDate = $('.DateTo').datepicker('getDate');
+                if (fromDate >= toDate) {
+                var d = fromDate;
+                d.setDate(d.getDate() + 1);
+                $('.DateTo').datepicker('setDate', d);
+                }
+                }
+                });
+                $('.DateFrom').datepicker('setDate', new Date());
+                $(".DateTo").datepicker({
+                dateFormat: $("#searchDateFormat").text(),
+                defaultDate: tomorrowDate(),
+                minDate: tomorrowDate(),
+                onSelect: function (date) {
+                var fromDate = $('.DateFrom').datepicker('getDate');
+                var toDate = $('.DateTo').datepicker('getDate');
+                if (toDate <= fromDate) {
+                var d = toDate;
+                d.setDate(d.getDate() - 1);
+                $('.DateFrom').datepicker('setDate', d);
+                }
+                }
+                });
+                $('.DateTo').datepicker('setDate', tomorrowDate());
+                function tomorrowDate() {
+                var date = new Date();
+                date.setDate(date.getDate() + 1);
+                return date;
+                }
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="py-20 px-4 bg-white">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#141719] mb-6">
+                Welcome to Spinola Hotel
+            </h2>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                Spinola Hotel is a welcoming 3-star property located in the heart of St. Julian's, directly overlooking Spinola Bay.
+                Operated by Luxfair Group, the hotel offers a blend of comfort and convenience, with Malta's top dining, nightlife,
+                and entertainment spots just steps away.
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
+                <div class="text-center">
+                    <div class="text-4xl font-serif font-bold text-[#BAA183] mb-2">50</div>
+                    <div class="text-gray-600">Comfortable Rooms</div>
+                </div>
+                <div class="text-center">
+                    <div class="flex items-center justify-center gap-1 mb-2">
+                        <span class="text-4xl font-serif font-bold text-[#BAA183]">3</span>
+                        <svg class="w-8 h-8 text-[#BAA183] fill-current" viewBox="0 0 20 20">
+                            <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                    </div>
+                    <div class="text-gray-600">Star Hotel</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-serif font-bold text-[#BAA183] mb-2">30m</div>
+                    <div class="text-gray-600">To Beach</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-serif font-bold text-[#BAA183] mb-2">24/7</div>
+                    <div class="text-gray-600">Concierge</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rooms Section -->
+    <section id="rooms" class="py-20 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#141719] mb-4">
+                    Our Rooms & Suites
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Each room is thoughtfully designed to provide comfort, style, and stunning views of Spinola Bay or St. Julian's cityscape
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Room 1 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://staging.luxfairhotels.com/wp-content/uploads/2023/05/single-room-spinola.png"
+                             alt="Deluxe Room"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-[#BAA183] text-white px-4 py-1 rounded-full text-sm font-medium">
+                            Popular
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-semibold text-[#141719] mb-2">Standard Double Room</h3>
+                        <p class="text-gray-600 mb-4">Spacious and ideal for couples or friends travelling together. Many include a balcony</p>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Double or Twin Beds
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Air Conditioning • Smart TV
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Private Bathroom • Free WiFi
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">From</span>
+                                <div class="text-2xl font-bold text-[#141719]">€95<span class="text-sm text-gray-500 font-normal">/night</span></div>
+                            </div>
+                            <a href="https://secure2.e-gdscloud.com/SpinolaHotel/" class="bg-[#141719] text-white px-6 py-2 rounded-lg hover:bg-[#35475c] transition-colors">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 2 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://staging.luxfairhotels.com/wp-content/uploads/2023/05/BRIANGRECH-SpinolaHotel-4809-HDR-scaled.jpg"
+                             alt="Bay View Suite"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-[#35475c] text-white px-4 py-1 rounded-full text-sm font-medium">
+                            Bay Views
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-semibold text-[#141719] mb-2">Sea View Room</h3>
+                        <p class="text-gray-600 mb-4">Enjoy beautiful, uninterrupted views of Spinola Bay from your private balcony</p>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Double or Twin Beds
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Private Balcony • Bay Views
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Air Conditioning • Free WiFi
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">From</span>
+                                <div class="text-2xl font-bold text-[#141719]">€114<span class="text-sm text-gray-500 font-normal">/night</span></div>
+                            </div>
+                            <a href="https://secure2.e-gdscloud.com/SpinolaHotel/" class="bg-[#141719] text-white px-6 py-2 rounded-lg hover:bg-[#35475c] transition-colors">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Room 3 -->
+                <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow group">
+                    <div class="relative h-64 overflow-hidden">
+                        <img src="https://staging.luxfairhotels.com/wp-content/uploads/2025/10/BRIANGRECH-SpinolaHotel-4853-HDR-scaled-e1760518130100.jpg"
+                             alt="Executive Suite"
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-[#35475c] text-white px-4 py-1 rounded-full text-sm font-medium">
+                            Premium
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-serif font-semibold text-[#141719] mb-2">Deluxe Room</h3>
+                        <p class="text-gray-600 mb-4">A larger room with modern design and upgraded furnishings. Enhanced comfort and city views</p>
+                        <ul class="space-y-2 text-sm text-gray-600 mb-6">
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Modern Design • Spacious
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                City Views • Smart TV
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="w-5 h-5 text-[#BAA183] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                </svg>
+                                Air Conditioning • Free WiFi
+                            </li>
+                        </ul>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <span class="text-sm text-gray-500">From</span>
+                                <div class="text-2xl font-bold text-[#141719]">€105<span class="text-sm text-gray-500 font-normal">/night</span></div>
+                            </div>
+                            <a href="https://secure2.e-gdscloud.com/SpinolaHotel/" class="bg-[#141719] text-white px-6 py-2 rounded-lg hover:bg-[#35475c] transition-colors">
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#141719] mb-6">
+                        Prime Location in<br>St. Julian's Heart
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Spinola Hotel sits in Malta's most vibrant neighborhood, where historic charm meets modern sophistication.
+                        Wake up to Spinola Bay views, stroll to nearby beaches, and immerse yourself in the island's legendary dining and nightlife scene.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-[#BAA183] bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#141719] mb-1">Portomaso Marina</h4>
+                                <p class="text-gray-600">5-minute walk to luxury yachts, high-end shopping, and waterfront dining</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-[#35475c] bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-[#35475c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#141719] mb-1">St. George's Bay Beach</h4>
+                                <p class="text-gray-600">Malta's popular sandy beach just 600 meters away</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-[#BAA183] bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#141719] mb-1">Paceville Nightlife</h4>
+                                <p class="text-gray-600">Malta's entertainment district on your doorstep</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 w-12 h-12 bg-[#35475c] bg-opacity-20 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-6 h-6 text-[#35475c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-[#141719] mb-1">Valletta Historic Center</h4>
+                                <p class="text-gray-600">15-minute drive to Malta's UNESCO World Heritage capital</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-96 lg:h-full rounded-2xl overflow-hidden shadow-2xl">
+                    <img src="https://staging.luxfairhotels.com/wp-content/uploads/2025/11/Spinola-Clouds.jpeg"
+                         alt="Spinola Bay Location"
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="py-20 px-4 bg-[#141719] text-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">
+                    Hotel Amenities
+                </h2>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                    Everything you need for a perfect Mediterranean escape
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#BAA183] bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                            <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                            <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                            <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                            <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Rooftop Swimming Pool</h3>
+                    <p class="text-gray-400">Relax and enjoy panoramic views</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#BAA183] bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                            <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                            <line x1="6" y1="1" x2="6" y2="4"></line>
+                            <line x1="10" y1="1" x2="10" y2="4"></line>
+                            <line x1="14" y1="1" x2="14" y2="4"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Breakfast Area</h3>
+                    <p class="text-gray-400">Start your day with a great meal</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#BAA183] bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">24-Hour Reception</h3>
+                    <p class="text-gray-400">Always here to help you</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#BAA183] bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Free Wi-Fi</h3>
+                    <p class="text-gray-400">Complimentary throughout the hotel</p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-[#BAA183] bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-[#BAA183]" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2 text-white">Vending Machines</h3>
+                    <p class="text-gray-400">Snacks and drinks available 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiences Section -->
+    <section id="experiences" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-[#141719] mb-4">
+                    Malta Experiences
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Let our concierge curate unforgettable experiences across the Maltese Islands
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="relative h-96 rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/28224008/pexels-photo-28224008.jpeg"
+                         alt="Blue Lagoon Malta"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <h3 class="text-3xl font-serif font-bold text-white mb-2">Blue Lagoon Cruises</h3>
+                            <p class="text-gray-200 mb-4">Discover Comino's crystal-clear waters and hidden caves</p>
+                            <button class="text-[#BAA183] font-medium hover:text-[#a38d71] transition-colors">
+                                Learn More →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-96 rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?q=80&w=2076"
+                         alt="Historic Tours"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <h3 class="text-3xl font-serif font-bold text-white mb-2">Valletta Heritage Tours</h3>
+                            <p class="text-gray-200 mb-4">Explore 7,000 years of history in Europe's smallest capital</p>
+                            <button class="text-[#BAA183] font-medium hover:text-[#a38d71] transition-colors">
+                                Learn More →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-96 rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.pexels.com/photos/2404370/pexels-photo-2404370.jpeg"
+                         alt="Scuba Diving Malta"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <h3 class="text-3xl font-serif font-bold text-white mb-2">Scuba Diving</h3>
+                            <p class="text-gray-200 mb-4">World-class dive sites and WWII wrecks await</p>
+                            <button class="text-[#BAA183] font-medium hover:text-[#a38d71] transition-colors">
+                                Learn More →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative h-96 rounded-2xl overflow-hidden group cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2070"
+                         alt="Culinary Experiences"
+                         class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent">
+                        <div class="absolute bottom-0 left-0 right-0 p-8">
+                            <h3 class="text-3xl font-serif font-bold text-white mb-2">Culinary Tours</h3>
+                            <p class="text-gray-200 mb-4">Savor authentic Maltese flavors and local wines</p>
+                            <button class="text-[#BAA183] font-medium hover:text-[#a38d71] transition-colors">
+                                Learn More →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 px-4 bg-gradient-to-r from-[#141719] to-[#35475c] text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-6">
+                Ready for Your Malta Adventure?
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Book direct for best rates and exclusive perks. Limited availability for peak season.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#book" class="bg-[#BAA183] text-white px-8 py-4 rounded-lg hover:bg-[#a38d71] transition-all transform hover:scale-105 font-medium text-lg">
+                    Book Now - Save 15%
+                </a>
+                <a href="tel:+35627283333" class="bg-white text-[#141719] px-8 py-4 rounded-lg hover:bg-gray-100 transition-all font-medium text-lg">
+                    Call +356 2728 3333
+                </a>
+            </div>
+            <p class="text-sm text-gray-400 mt-6">Free cancellation up to 48 hours before arrival</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-[#141719] text-gray-300 py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                <!-- Hotel Info -->
+                <div>
+                    <h3 class="text-2xl font-serif font-semibold text-white mb-4">Spinola Hotel</h3>
+                    <p class="text-gray-400 mb-4">
+                        3-star hotel in the heart of St. Julian's, Malta
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-[#35475c] rounded-full flex items-center justify-center hover:bg-[#BAA183] transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-[#35475c] rounded-full flex items-center justify-center hover:bg-[#BAA183] transition-colors">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Policies -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Policies</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-[#BAA183] transition-colors">Cancellation Policy</a></li>
+                        <li><a href="#" class="hover:text-[#BAA183] transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-[#BAA183] transition-colors">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <svg class="w-5 h-5 text-[#BAA183] mr-2 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <a href="https://maps.google.com/?q=Spinola+Bay,+St.+Julian's+STJ+3019,+Malta" target="_blank" class="hover:text-[#BAA183] transition-colors">Spinola Bay, St. Julian's<br>STJ 3019, Malta</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-[#BAA183] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <a href="tel:+35627283333" class="hover:text-[#BAA183] transition-colors">+356 2728 3333</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-5 h-5 text-[#BAA183] mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <a href="mailto:reservations@spinolahotel.com.mt" class="hover:text-[#BAA183] transition-colors">reservations@spinolahotel.com.mt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-[#35475c] pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2025 Spinola Hotel. All rights reserved. | Designed by <a href="https://miniemporium.media" target="_blank" class="text-[#BAA183] hover:text-[#a38d71]">MiniEmporium Media</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
